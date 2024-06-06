@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  app1:
+    container_name: frontend
+    image: "cr.yandex/crpk3rpmfiosc6kehjf3/kanban:latest"
+    ports:
+      - "80:80"
+    restart: always
+    environment:
+      MY_APP_BACKEND_ORIGIN: "https://ggggg.ru"
+    

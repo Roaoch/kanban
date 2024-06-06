@@ -57,7 +57,7 @@ export const useTasks = create<tasksState>()(persist(immer((set) => ({
     leads: [],
     setLeads: (data) => set({leads: data}),
     getLeads: async () => {
-        await axios.post('https://d5dnebshjibq2cticp6u.apigw.yandexcloud.net/get-leads', {})
+        await axios.post(`${import.meta.env.VITE_BACKEND_ORIGIN}/get-leads`, {})
             .then(response => {
                 set({boards: response.data.data});
             })
@@ -66,7 +66,7 @@ export const useTasks = create<tasksState>()(persist(immer((set) => ({
             })
     },
     deleteLead: async (id: string) => {
-        await axios.post('https://d5dnebshjibq2cticp6u.apigw.yandexcloud.net/delet', {
+        await axios.post(`${import.meta.env.VITE_BACKEND_ORIGIN}/delet`, {
             "id": id
         })
             .then(() => {
@@ -77,14 +77,14 @@ export const useTasks = create<tasksState>()(persist(immer((set) => ({
             })
     },
     deleteAllLeads: async (status: string) => {
-        await axios.post('https://d5dnebshjibq2cticp6u.apigw.yandexcloud.net/delet-all', {
+        await axios.post(`${import.meta.env.VITE_BACKEND_ORIGIN}/delet-all`, {
             'status': status
         }).then(() => {
             set(state => state.getLeads())
         }).catch(error => console.log(error))
     },
     updateLead: async (id: string, status: string) => {
-        await axios.post('https://d5dnebshjibq2cticp6u.apigw.yandexcloud.net/update-lead', {
+        await axios.post(`${import.meta.env.VITE_BACKEND_ORIGIN}/update-lead`, {
             "id": id,
             "status": status
         }).then(() => {
@@ -92,7 +92,7 @@ export const useTasks = create<tasksState>()(persist(immer((set) => ({
         }).catch(error => console.log(error))
     },
     createLead: async (name: string, description: string) => {
-        await axios.post('https://d5dnebshjibq2cticp6u.apigw.yandexcloud.net/create', {
+        await axios.post(`${import.meta.env.VITE_BACKEND_ORIGIN}/create`, {
             "name": name,
             "description": description
         }).then(() => {

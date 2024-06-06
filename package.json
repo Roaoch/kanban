@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@import-meta-env/unplugin": "^0.5.1",
+    "@types/node": "^20.13.0",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "immer": "^10.1.1",
