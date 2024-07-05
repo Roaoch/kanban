@@ -6,9 +6,6 @@ COPY ./yarn.lock ./yarn.lock
 
 RUN yarn install
 
-ARG ORIGIN
-ENV VITE_ORIGIN ${ORIGIN}
-
 COPY ./public ./public
 COPY ./src ./src
 COPY ./tsconfig.json ./tsconfig.json
